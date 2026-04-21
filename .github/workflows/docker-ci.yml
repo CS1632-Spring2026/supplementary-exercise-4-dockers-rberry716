@@ -24,6 +24,10 @@ jobs:
       - name: Set up Playwright
         run: npm install -D @playwright/test
       
+
+      - name: Wait for Web Server
+        run: sh wait-for-webserver.sh
+
       - name: Set up Playwright Browsers
         run: npx playwright install --with-deps chromium
 
