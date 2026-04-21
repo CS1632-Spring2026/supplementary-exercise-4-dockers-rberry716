@@ -25,9 +25,6 @@ jobs:
         run: npm install -D @playwright/test
       
 
-      - name: Wait for Web Server
-        run: sh wait-for-webserver.sh
-
       - name: Set up Playwright Browsers
         run: npx playwright install --with-deps chromium
 
@@ -36,6 +33,9 @@ jobs:
 
       - name: Launch Web Service
         run: docker compose up -d
+
+      - name: Wait for Web Server
+        run: sh wait-for-webserver.sh
 
       - name: Run Playwright Tests
         run: npx playwright test --project=chromium
